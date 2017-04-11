@@ -11,6 +11,7 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-    hook.removeGame = true;
+    const currentGame = hook.params.game;
+
   };
 };
