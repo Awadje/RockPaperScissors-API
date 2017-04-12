@@ -1,5 +1,7 @@
 'use strict';
 
+const winGame = require('./winGame');
+
 const removeGame = require('./removeGame');
 
 const firstEncounter = require('./firstEncounter');
@@ -32,7 +34,7 @@ exports.after = {
   all: [hooks.populate('players', {
     service: 'users',
     field: 'playerIds'
-  }), isGameFull(), firstEncounter()],
+  }), isGameFull(), firstEncounter(), winGame()],
   find: [],
   get: [],
   create: [],
