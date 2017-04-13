@@ -1,5 +1,7 @@
 'use strict';
 
+const postWeapon = require('./postWeapon');
+
 const removeGame = require('./removeGame');
 
 const firstEncounter = require('./firstEncounter');
@@ -18,12 +20,12 @@ exports.before = {
   all: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.restrictToAuthenticated()
+    auth.restrictToAuthenticated(),
   ],
   find: [],
   get: [],
   create: [createGame()],
-  update: [joinGame()],
+  update: [joinGame(), postWeapon()],
   patch: [joinGame()],
   remove: [removeGame()]
 };
