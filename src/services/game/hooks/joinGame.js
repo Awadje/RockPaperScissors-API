@@ -12,8 +12,11 @@ module.exports = function(options) {
   return function(hook) {
     return hook.app.service('games').get(hook.id)
       .then((game) => {
-        if (hook.data.joinGame === undefined) {
-          throw new errors.Forbidden('You must be the author to change a game like that.');
+        console.log(hook.data);
+          // if (hook.data.postWeapon !== undefined)
+        // if(game.playerIds > 2) return
+        if (hook.data.joinGame === false) {
+          throw new errors.Forbidden('No JoinGame Data');
         }
 
         // See Feathers code for available error types
@@ -21,12 +24,13 @@ module.exports = function(options) {
 
         if (isGameFull(game)) {
           throw new errors.Unprocessable('Sorry, this game is full!');
-        }
 
+        }
         const action = hook.data.joinGame ? '$addToSet' : '$pull';
         let data = {};
         data[action] = { playerIds: hook.params.user._id };
         hook.data = data;
+
       })
   }
 }

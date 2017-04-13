@@ -11,10 +11,9 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-    const currentGame = hook.params.game;
-
-    hook.data.playerInput = `${$currentUser.name}'s Move`;
-
-    hook.data.playerIds = [hook.params.user._id];
+    const wapon = hook.data.PlayerInput
+    hook.data = data;
+    hook.data.PlayerInput = wapon
+      console.log(hook.data.PlayerInput);
   };
 };
