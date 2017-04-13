@@ -12,5 +12,9 @@ module.exports = function(options) {
 
   return function(hook) {
     const currentGame = hook.params.game;
+
+    hook.data.playerInput = `${$currentUser.name}'s Move`;
+
+    hook.data.playerIds = [hook.params.user._id];
   };
 };
