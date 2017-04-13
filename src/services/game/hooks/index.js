@@ -1,6 +1,6 @@
 'use strict';
 
-const winGame = require('./winGame');
+const postWeapon = require('./postWeapon');
 
 const removeGame = require('./removeGame');
 
@@ -20,12 +20,12 @@ exports.before = {
   all: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.restrictToAuthenticated()
+    auth.restrictToAuthenticated(),
   ],
   find: [],
   get: [],
   create: [createGame()],
-  update: [joinGame()],
+  update: [joinGame(), postWeapon()],
   patch: [joinGame()],
   remove: [removeGame()]
 };
@@ -34,7 +34,7 @@ exports.after = {
   all: [hooks.populate('players', {
     service: 'users',
     field: 'playerIds'
-  }), isGameFull(), firstEncounter(), winGame()],
+  }), isGameFull(), firstEncounter()],
   find: [],
   get: [],
   create: [],
