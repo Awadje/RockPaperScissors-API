@@ -1,6 +1,8 @@
 'use strict';
 
+
 const postWeapon = require('./postWeapon');
+
 
 const removeGame = require('./removeGame');
 
@@ -25,8 +27,8 @@ exports.before = {
   find: [],
   get: [],
   create: [createGame()],
-  update: [joinGame(), postWeapon()],
-  patch: [joinGame()],
+  update: [joinGame()],
+  patch: [joinGame(), postWeapon()],
   remove: [removeGame()]
 };
 
