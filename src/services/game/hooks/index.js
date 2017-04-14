@@ -10,6 +10,10 @@ const joinGame = require('./joinGame');
 
 const createGame = require('./createGame');
 
+const playerInput = require('./playerInput');
+
+// const gameResult = require('./gameResult');
+
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
@@ -24,7 +28,7 @@ exports.before = {
   get: [],
   create: [createGame()],
   update: [joinGame()],
-  patch: [joinGame()],
+  patch: [joinGame(), playerInput()],
   remove: [removeGame()]
 };
 
