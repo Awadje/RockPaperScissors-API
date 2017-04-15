@@ -13,7 +13,7 @@ const gameSchema = new Schema({
   playerIds: [Schema.Types.ObjectId],
   PlayerInputOne: { type: Number, 'default': 0 },
   PlayerInputTwo: { type: Number, 'default': 0 },
-  winner:         { type: Schema.Types.ObjectId },
+  winner:         { type: String, 'default': '' },
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
