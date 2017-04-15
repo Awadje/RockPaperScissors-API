@@ -8,7 +8,7 @@ const isGameFull = require('./isGameFull');
 
 const joinGame = require('./joinGame');
 
-const gameLogic = require('/gameLogic')
+const gameLogic = require('./gameLogic')
 
 const createGame = require('./createGame');
 
