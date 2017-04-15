@@ -8,6 +8,8 @@ const isGameFull = require('./isGameFull');
 
 const joinGame = require('./joinGame');
 
+const gameLogic = require('/gameLogic')
+
 const createGame = require('./createGame');
 
 const playerInput = require('./playerInput');
@@ -28,7 +30,7 @@ exports.before = {
   get: [],
   create: [createGame()],
   update: [joinGame()],
-  patch: [joinGame(), playerInput()],
+  patch: [joinGame(), playerInput(), gameLogic()],
   remove: [removeGame()]
 };
 
